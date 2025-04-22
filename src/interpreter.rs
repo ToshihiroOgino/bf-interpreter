@@ -37,7 +37,6 @@ fn print_char(ch: char) {
     println!("Output: {}({})", ch, ch as u8);
 }
 
-#[allow(dead_code)]
 impl Interpreter {
     pub fn new(sourcecode: &str) -> Self {
         Interpreter {
@@ -46,11 +45,6 @@ impl Interpreter {
             machine: Machine::new(),
             pointer_stack: Vec::new(),
         }
-    }
-
-    pub fn reset(&mut self) {
-        self.code_pointer = 0;
-        self.machine = Machine::new();
     }
 
     pub fn run(&mut self) {
@@ -101,7 +95,6 @@ impl Interpreter {
             }
             Expression::Output => {
                 let output = convert_to_ascii(self.machine.get().unwrap());
-                // print!("\"{}\"({})", output, output as u8);
                 print_char(output);
                 self.code_pointer += 1;
             }

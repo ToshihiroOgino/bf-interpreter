@@ -13,7 +13,6 @@ pub enum MemoryError {
     OutOfBounds,
 }
 
-#[allow(dead_code)]
 impl Machine {
     pub fn new() -> Self {
         Machine {
@@ -69,19 +68,6 @@ impl Machine {
     pub fn set(&mut self, value: u8) -> Result<(), MemoryError> {
         if self.pointer < MEMORY_SIZE {
             self.data[self.pointer] = value;
-            Ok(())
-        } else {
-            Err(MemoryError::OutOfBounds)
-        }
-    }
-
-    pub fn get_pointer(&self) -> usize {
-        self.pointer
-    }
-
-    pub fn set_pointer(&mut self, pointer: usize) -> Result<(), MemoryError> {
-        if pointer < MEMORY_SIZE {
-            self.pointer = pointer;
             Ok(())
         } else {
             Err(MemoryError::OutOfBounds)
