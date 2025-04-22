@@ -12,13 +12,11 @@ fn main() {
         println!("No argument provided, using default file: {}", default);
         default.to_string()
     });
+
     let src = fs::read_to_string(target).expect("Something went wrong reading the file");
     print!("File contents: {}", src);
 
     let mut interpreter = Interpreter::new(&src);
     interpreter.run();
     print!("\n")
-
-    // let ch = get_char();
-    // println!("You entered: {}", ch);
 }

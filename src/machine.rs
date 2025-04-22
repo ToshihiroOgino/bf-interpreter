@@ -57,7 +57,7 @@ impl Machine {
         }
     }
 
-    pub fn get(&self) -> Result<u8, MemoryError> {
+    pub fn read(&self) -> Result<u8, MemoryError> {
         if self.pointer < MEMORY_SIZE {
             Ok(self.data[self.pointer])
         } else {
@@ -65,7 +65,7 @@ impl Machine {
         }
     }
 
-    pub fn set(&mut self, value: u8) -> Result<(), MemoryError> {
+    pub fn write(&mut self, value: u8) -> Result<(), MemoryError> {
         if self.pointer < MEMORY_SIZE {
             self.data[self.pointer] = value;
             Ok(())

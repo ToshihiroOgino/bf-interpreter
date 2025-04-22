@@ -73,7 +73,7 @@ impl Interpreter {
                 self.code_pointer += 1;
             }
             Expression::LoopBegin => {
-                if self.machine.get().unwrap() == 0 {
+                if self.machine.read().unwrap() == 0 {
                     if let Some(end) = self.find_matching_bracket(self.code_pointer) {
                         self.code_pointer = end + 1;
                     } else {
@@ -86,7 +86,7 @@ impl Interpreter {
             }
             Expression::LoopEnd => {
                 let loop_begin = self.pointer_stack.pop().unwrap();
-                let head_val = self.machine.get().unwrap();
+                let head_val = self.machine.read().unwrap();
                 if head_val != 0 {
                     self.code_pointer = loop_begin;
                 } else {
@@ -94,13 +94,13 @@ impl Interpreter {
                 }
             }
             Expression::Output => {
-                let output = convert_to_ascii(self.machine.get().unwrap());
+                let output = convert_to_ascii(self.machine.read().unwrap());
                 print_char(output);
                 self.code_pointer += 1;
             }
             Expression::Input => {
                 let input = get_char();
-                self.machine.set(input).unwrap();
+                self.machine.write(input).unwrap();
                 self.code_pointer += 1;
             }
         }
