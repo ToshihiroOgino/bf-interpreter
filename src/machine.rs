@@ -1,5 +1,4 @@
 const MEMORY_SIZE: usize = 10000;
-
 pub type MemoryPointer = usize;
 
 #[derive(Debug)]

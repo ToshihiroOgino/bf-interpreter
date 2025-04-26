@@ -1,6 +1,5 @@
-use std::io::Write;
-
 use crate::{expression::Expression, machine::Machine};
+use std::io::Write;
 
 type CodePointer = usize;
 
@@ -34,7 +33,7 @@ fn get_char() -> u8 {
 }
 
 fn print_char(ch: char) {
-    println!("Output: {}({})", ch, ch as u8);
+    println!("Output: {}", ch);
 }
 
 impl Interpreter {
