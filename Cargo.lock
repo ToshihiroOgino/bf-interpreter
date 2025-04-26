@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "bf-machine"
+name = "bf-interpreter"
 version = "0.1.0"
