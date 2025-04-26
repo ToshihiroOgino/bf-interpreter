@@ -14,16 +14,16 @@ cargo run {bf code file path}
 
 ### test.bf
 
-![](screenshots/test.result.png)
+![](screenshot/test.result.png)
 
 ### test2.bf
 
-![](screenshots/test2.result.png)
+![](screenshot/test2.result.png)
 
 ### test5.bf
 
-![](screenshots/test5.result.png)
+![](screenshot/test5.result.png)
 
 ### test8.bf
 
-![](screenshots/test8.result.png)
+![](screenshot/test8.result.png)
