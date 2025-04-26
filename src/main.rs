@@ -14,7 +14,7 @@ fn main() {
     });
 
     let src = fs::read_to_string(target).expect("Something went wrong reading the file");
-    print!("File contents: {}", src);
+    print!("File contents:\n{}", src);
 
     let mut interpreter = Interpreter::new(&src);
     interpreter.run();
